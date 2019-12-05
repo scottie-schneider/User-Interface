@@ -1,3 +1,18 @@
+/* 
+  Goal tracking:
+  
+  Stretch goals:
+  * DONE Navigation Background color
+  * DONNE Navigation Background fixed
+  * DONE New Google Fonts Font Family (Done, Fira Sans)
+  * New Page based off a navigation item 
+  * DONE All Image tags into background images 
+    * DONE Logo (done)
+    * DONE Hero Circular Image (done)
+    * DONE Middle Image (done)
+  * DONE CSS Animations (transition) (done, on link hover background changes)
+*/
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -54,13 +69,135 @@ table {
 
 html, body {
     height: 100%;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Bangers', cursive;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
+  font-family: 'Fira Sans', sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
 }
 
 /* Your code starts here! */
+h2 {
+  font-weight: bold;
+}
+.container {
+	width: 1200px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+/* nav */
+header .nav-container{
+  width: 100%;
+  display: block;	  
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: lightgrey;
+  margin: 0 auto;
+}
+header .logo {
+  background-image: url(../img/logo.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 35px;
+  width: 250px;
+  float: right;
+  margin-right: 35px;
+  display: inline-block;
+}
+.nav-container nav{
+	display: inline-block;
+	vertical-align: middle;
+}
+.nav-container nav a{
+	margin-right: 45px;
+	color: #666;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+.nav-container nav a:hover {
+	background-color: grey;
+}
+.nav-container img{
+	display: inline-block;
+	vertical-align: middle;
+}
+/* hero */
+.hero {
+	width: 100%;
+  padding: 2.5em 1rem;
+  margin-top: 30px;
+}
+.hero .hero-text {
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+	width: 60%;	
+}
+.hero .hero-text h1 {
+  font-size: 60px;  
+}
+.hero .hero-text h1:last-of-type {
+  margin-bottom: 2rem;
+}
+.hero .hero-text a {
+	border: 1px solid #666;
+	font-size: 20px;
+	color: black;
+	font-weight: 600;
+	text-decoration: none;
+  padding: .5rem 2rem;
+  margin-top: 1rem;
+}
+.hero .hero-image {
+	display: inline-block;
+  width: 39%;
+  height: 380px;
+  vertical-align: middle;
+  background-image: url(../img/header-img.png);  
+  object-fit: fill;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.hero .hero-image img {
+	width: 100%;
+}
+
+.section2 section{
+ display: inline-block;
+ width: 49%;
+ line-height: 1.15;
+ margin: 0 auto;
+ margin-bottom: 20px;
+ padding: 10px 10px 10px 0;
+}
+
+.section3 section {
+	display: inline-block;
+	width: 32%;
+	line-height: 1.15;
+	margin: 0 auto;
+	padding: 10px 10px 10px 0;
+}
+
+.middle-img{
+	width: 100%;
+  padding: 20px 0;
+  background-image: url(../img/mid-page-accent.jpg);
+  height: 180px;
+  margin-bottom: 22px;
+}
+
+.contact{
+	padding: 0 10px;
+}
+.contact p{
+	line-height: 1.75;
+}
+footer{
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+}
