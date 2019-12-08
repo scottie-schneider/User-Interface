@@ -17,6 +17,22 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+/* 
+** HOME PAGE REFACTOR **
+  Goal tracking, User Interace III project
+  DONE Refactor the home page layout with flexbox where inline-block was used before.
+    * header .nav-container
+    * .hero 
+
+  DONE In your navigation elements, point the services <a href=""></a> to services.html
+** Services Page ** 
+  DONE Update the title in your newly copied services page to say Great Idea! - Services
+  DONE Using the provided design file, create the services page layout using flexbox and box model.
+  DONE Wrap the great idea logo in an anchor tag and point the href to index.html
+** Stretch Goals **
+  Create another page based on one of the navigation items in addition to services. Try to create a layout that follows the patterns of the first two designs but with your own creative twist. Use lorem ipsum text for all your content.
+  DONE Introduce media queries into your services page to create a mobile view that stacks all the boxes on top of each other on phone but looks like the layout file on desktop.
+*/
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -46,9 +62,9 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
+/* ol, ul {
 	list-style: none;
-}
+} */
 blockquote, q {
 	quotes: none;
 }
@@ -83,14 +99,16 @@ h2 {
   font-weight: bold;
 }
 .container {
-	width: 1200px;
+	width: 100%;
   margin: 0 auto;
   margin-top: 2rem;
 }
 /* nav */
 header .nav-container{
   width: 100%;
-  display: block;	  
+  display: flex;	  
+  flex: 1;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
@@ -103,12 +121,10 @@ header .logo {
   background-repeat: no-repeat;
   height: 35px;
   width: 250px;
-  float: right;
   margin-right: 35px;
-  display: inline-block;
+  
 }
-.nav-container nav{
-	display: inline-block;
+.nav-container nav {
 	vertical-align: middle;
 }
 .nav-container nav a{
@@ -120,8 +136,7 @@ header .logo {
 .nav-container nav a:hover {
 	background-color: grey;
 }
-.nav-container img{
-	display: inline-block;
+.nav-container img {	
 	vertical-align: middle;
 }
 /* hero */
@@ -129,12 +144,21 @@ header .logo {
 	width: 100%;
   padding: 2.5em 1rem;
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 1060px) {
+  .hero {
+    flex-direction: row;    
+  }
 }
 .hero .hero-text {
 	text-align: center;
-	display: inline-block;
 	vertical-align: middle;
-	width: 60%;	
+  width: 60%;	  
 }
 .hero .hero-text h1 {
   font-size: 60px;  
@@ -152,37 +176,37 @@ header .logo {
   margin-top: 1rem;
 }
 .hero .hero-image {
-	display: inline-block;
+  margin-top: 3rem;
   width: 39%;
-  height: 380px;
+  height: 380px;  
+  max-width: 100%;
   vertical-align: middle;
   background-image: url(../img/header-img.png);  
-  object-fit: fill;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 }
-.hero .hero-image img {
-	width: 100%;
-}
 
-.section2 section{
- display: inline-block;
- width: 49%;
+
+.section2, 
+.section3 {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
  line-height: 1.15;
- margin: 0 auto;
- margin-bottom: 20px;
+ margin: 0 20px 0;
  padding: 10px 10px 10px 0;
 }
-
-.section3 section {
-	display: inline-block;
-	width: 32%;
-	line-height: 1.15;
-	margin: 0 auto;
-	padding: 10px 10px 10px 0;
+@media (min-width: 1060px) {
+  .section2,
+  .section3 {
+    flex-direction: row;
+  }
 }
-
-.middle-img{
+section {
+  margin-top: 3rem;
+}
+.middle-img {
 	width: 100%;
   padding: 20px 0;
   background-image: url(../img/mid-page-accent.jpg);
@@ -191,7 +215,7 @@ header .logo {
 }
 
 .contact{
-	padding: 0 10px;
+  margin: 0 20px 0;
 }
 .contact p{
 	line-height: 1.75;
@@ -200,4 +224,74 @@ footer{
 	width: 100%;
 	text-align: center;
 	padding: 10px;
+}
+
+/* Services Page */
+.heroimage {
+  background-image: url(../img/services-header.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  width: 100vw;
+  border: 1px solid black;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 20px 0; 
+}
+
+.card {
+  flex: 1 0 500px;
+  box-sizing: border-box;
+  margin: 1rem .25em;
+  border: 1px solid black;
+  padding: 1rem;
+}
+@media screen and (min-width: 40em) {
+  .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+
+  .card {
+      flex: 0 1 calc(50% - 1em);
+  }
+}
+@media screen and (min-width: 60em) {
+  .card {
+      flex: 0 1 calc(25% - 1em);
+  }
+}
+.facts section ul {
+  list-style: circle !important;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+/* facts section */
+.facts {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px 0;
+  justify-content: center;
+  align-items: center;
+}
+.facts > .image {
+  flex: 1 0 0%;
+}
+.facts > img {
+  display: block;
+  max-width: 100%;
+  max-height: 300px;
+}
+.facts > section {
+  flex: 2 0 0%;
+}
+@media (min-width: 785px){
+  .facts {
+    flex-direction: row;
+  }
 }
